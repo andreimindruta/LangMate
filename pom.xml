@@ -9,10 +9,10 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.example</groupId>
-    <artifactId>java-duolingo-app</artifactId>
+    <artifactId>java-langmate-app</artifactId>
     <version>0.0.1-SNAPSHOT</version>
-    <name>java-duolingo-app</name>
-    <description>java-duolingo-app</description>
+    <name>java-langmate-app</name>
+    <description>java-langmate-app</description>
     <properties>
         <java.version>17</java.version>
     </properties>
