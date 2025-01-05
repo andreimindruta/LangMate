@@ -1,11 +1,8 @@
 package com.example.langmate.controller;
 
 import com.example.langmate.controller.payload.request.MilestoneRequest;
-import com.example.langmate.controller.payload.request.PostRewardRequest;
 import com.example.langmate.controller.payload.response.GetMilestoneResponse;
-import com.example.langmate.controller.payload.response.GetRewardResponse;
 import com.example.langmate.domain.entities.Milestone;
-import com.example.langmate.domain.entities.Reward;
 import com.example.langmate.service.impl.MilestoneService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -58,17 +55,6 @@ public class MilestoneController {
                 milestone.getDescription(),
                 milestone.getTargetValue(),
                 milestone.getTargetType()
-        );
-        return ResponseEntity.ok(response);
-    }
-
-    @PostMapping("/{id}/rewards")
-    public ResponseEntity<GetRewardResponse> addRewardToMilestone(@PathVariable Long id, @RequestBody PostRewardRequest request) {
-        Reward reward = milestoneService.addRewardToMilestone(id, request);
-        GetRewardResponse response = new GetRewardResponse(
-                reward.getId(),
-                reward.getName(),
-                reward.getDescription()
         );
         return ResponseEntity.ok(response);
     }
