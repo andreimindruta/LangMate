@@ -1,19 +1,26 @@
 package com.example.langmate.domain.entities;
-import lombok.Data;
 
-import javax.persistence.*;
+import jakarta.persistence.*;
+import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 @Entity
 @Data
+@EqualsAndHashCode(onlyExplicitlyIncluded = true)
 public class Reward {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @EqualsAndHashCode.Include
     private Long id;
 
     private String name;
+
     private String description;
 
     @ManyToOne
     @JoinColumn(name = "milestone_id")
-    private Milestone milestone; // legatura cu milestone
+    @ToString.Exclude
+    private Milestone milestone;
 }
