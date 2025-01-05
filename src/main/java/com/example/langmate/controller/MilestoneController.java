@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @RestController
-@RequestMapping("/api/milestones")
+@RequestMapping("/langmate/milestones")
 public class MilestoneController {
 
     @Autowired
@@ -49,7 +49,7 @@ public class MilestoneController {
         return ResponseEntity.ok(response);
     }
 
-    @PostMapping
+    @PostMapping(path = "/create")
     public ResponseEntity<GetMilestoneResponse> createMilestone(@RequestBody MilestoneRequest request) {
         Milestone milestone = milestoneService.createMilestone(request);
         GetMilestoneResponse response = new GetMilestoneResponse(
