@@ -83,7 +83,7 @@ package com.example.langmate.integration;//package com.example.langmate.integrat
 //        languageRepository.save(language);
 //
 //        Mockito.when(userService.getCurrentUser()).thenReturn(LangmateTestUtils.mockNewUser());
-//        Mockito.when(jwtUtils.getUserNameFromJwtToken(Mockito.any())).thenReturn("alice");
+//        Mockito.when(jwtUtils.getUserNameFromJwtToken(Mockito.any())).thenReturn("andrei");
 //        Mockito.when(userRepository.findByUsername(Mockito.any())).thenReturn(LangmateTestUtils.mockNewUser());
 //    }
 //

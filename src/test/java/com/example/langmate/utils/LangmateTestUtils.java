@@ -8,9 +8,9 @@ public class LangmateTestUtils {
     public static Optional<User> mockNewUser() {
         User user = new User();
         user.setId(1L);
-        user.setName("Alice Maria");
-        user.setPass("alice");
-        user.setUsername("alice");
+        user.setName("Andrei");
+        user.setPass("andrei");
+        user.setUsername("andrei");
 
         return Optional.of(user);
     }
