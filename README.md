@@ -38,26 +38,22 @@ MVP features implemented (top 5 of the initial list):
   For each language selected, users can access a series of educational lessons.
   Each lesson should focus on a specific topic relevant to the language, such as grammar, vocabulary, or cultural aspects.
   Lessons should be presented in a structured format, starting with an introduction to the main topic followed by detailed instructional content.
-
 <img width="1471" alt="Screenshot 2025-01-06 at 18 21 42" src="https://github.com/user-attachments/assets/3e1c1d73-d7a3-44d1-b117-7f5435c90ea6" />
-
- <br />
-![image](https://github.com/andreimindruta/langmate-master/assets/63742125/ef1f1673-3ae1-4bd0-8837-faccf7a9eb40)
 <br /><br />
 
 - Knowledge Assessment:
   Users can take tests to assess their progress in any of the languages they are learning.
   Each test should comprise five randomly selected questions, covering various aspects of the lessons related to the chosen language.
   After completing a test, users should be able to submit their answers for evaluation and receive immediate feedback in the form of a grade. <br />
-  ![image](https://github.com/andreimindruta/langmate-master/assets/63742125/a721e02a-01b5-4b5f-b054-8f50dce60868)
+<img width="1454" alt="Screenshot 2025-01-06 at 18 30 21" src="https://github.com/user-attachments/assets/c74c6b5d-61a7-4d14-88a9-93b1146ebb4e" />
+
 <br /><br />
 
 - Results module
   The application should provide a feature for users to track their learning progress.
   Users can view a history of their grades on language tests.
   This tracking should be organized chronologically, allowing users to easily assess their progress. <br />
-  ![image](https://github.com/andreimindruta/langmate-master/assets/63742125/78337462-d151-4c41-8a0c-527c5b1cda62)
+ <img width="1473" alt="Screenshot 2025-01-06 at 18 31 02" src="https://github.com/user-attachments/assets/bd94f37e-4690-44f3-9af1-2fb4b4182cb0" />
 
- 
 
 
