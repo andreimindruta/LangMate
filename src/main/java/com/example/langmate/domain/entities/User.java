@@ -9,6 +9,7 @@ import lombok.Data;
 @Data
 @Table(name = "users")
 public class User {
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
@@ -24,4 +25,11 @@ public class User {
     )
     private List<Language> languages;
 
+    // Constructor pentru ID
+    public User(Long id) {
+        this.id = id;
+    }
+
+    // Constructor implicit (necesar pentru JPA)
+    public User() {}
 }
