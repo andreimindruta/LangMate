@@ -58,7 +58,6 @@ public class MilestoneService {
     }
 
     public void deleteMilestone(Long id) {
-        logger.info("Deleting milestone with ID: {}", id);
         milestoneRepository.deleteById(id);
     }
 
@@ -113,5 +112,12 @@ public class MilestoneService {
         } else {
             logger.info("Milestone: {} already assigned to userId: {}", milestone.getName(), userId);
         }
+    }
+
+    public List<Milestone> getUserMilestones(Long userId) {
+        return milestoneUserRepository.findByUserId(userId)
+                .stream()
+                .map(MilestoneUser::getMilestone)
+                .toList();
     }
 }
