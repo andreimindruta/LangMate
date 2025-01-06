@@ -23,15 +23,13 @@ MVP features implemented (top 5 of the initial list):
   The system should implement basic authentication protocols to ensure secure login processes.
   After account creation, users should be able to log in to access the application's features.
 <br />
-
 <img width="1471" alt="Screenshot 2025-01-06 at 18 19 12" src="https://github.com/user-attachments/assets/46d3b1da-f0b4-4a0a-9e75-e56e1740cbc9" />
 
-  Language Selection and Customization
 - Languages module:
   Upon logging in, users can select one or more languages they wish to learn or practice.
   The application should offer a diverse range of languages from which users can choose.
   Users should have the flexibility to modify their selection of languages at any time, allowing them to add new languages or remove previously selected ones from their learning list.
-  Access to Language Lessons <br />
+ <br />
   <br />
 
 <img width="1445" alt="Screenshot 2025-01-06 at 18 21 03" src="https://github.com/user-attachments/assets/eaca45d3-f5d5-4690-8b20-c947d65d6812" />
@@ -43,7 +41,7 @@ MVP features implemented (top 5 of the initial list):
 
 <img width="1471" alt="Screenshot 2025-01-06 at 18 21 42" src="https://github.com/user-attachments/assets/3e1c1d73-d7a3-44d1-b117-7f5435c90ea6" />
 
-  Language Proficiency Testing <br />
+ <br />
 ![image](https://github.com/andreimindruta/langmate-master/assets/63742125/ef1f1673-3ae1-4bd0-8837-faccf7a9eb40)
 <br /><br />
 
