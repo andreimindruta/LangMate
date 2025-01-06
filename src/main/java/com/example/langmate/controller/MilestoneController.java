@@ -64,4 +64,10 @@ public class MilestoneController {
         milestoneService.deleteMilestone(id);
         return ResponseEntity.noContent().build();
     }
+
+    @GetMapping("/user/{userId}")
+    public ResponseEntity<List<Milestone>> getMilestoneByUserId(@PathVariable Long userId) {
+        List <Milestone> milestones = milestoneService.getUserMilestones(userId);
+        return ResponseEntity.ok(milestones);
+    }
 }
