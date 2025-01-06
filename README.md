@@ -49,7 +49,7 @@ MVP features implemented (top 5 of the initial list):
 
 <br /><br />
 
-- Results module
+- Progress Results Tracking
   The application should provide a feature for users to track their learning progress.
   Users can view a history of their grades on language tests.
   This tracking should be organized chronologically, allowing users to easily assess their progress. <br />
