@@ -5,6 +5,7 @@ import com.example.langmate.controller.payload.response.GetMilestoneResponse;
 import com.example.langmate.domain.entities.Milestone;
 import com.example.langmate.service.impl.MilestoneService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -41,7 +42,8 @@ public class MilestoneController {
                 milestone.getName(),
                 milestone.getDescription(),
                 milestone.getTargetValue(),
-                milestone.getTargetType().name()
+                milestone.getTargetType() != null ? milestone.getTargetType().name() : null
+
         );
         return ResponseEntity.ok(response);
     }
@@ -56,7 +58,8 @@ public class MilestoneController {
                 milestone.getTargetValue(),
                 milestone.getTargetType().name()
         );
-        return ResponseEntity.ok(response);
+        return ResponseEntity.status(HttpStatus.CREATED).body(response);
+
     }
 
     @DeleteMapping("/{id}")
