@@ -55,5 +55,9 @@ MVP features implemented (top 5 of the initial list):
   This tracking should be organized chronologically, allowing users to easily assess their progress. <br />
  <img width="1473" alt="Screenshot 2025-01-06 at 18 31 02" src="https://github.com/user-attachments/assets/bd94f37e-4690-44f3-9af1-2fb4b4182cb0" />
 
+<br /><br />
 
+Milestones and Rewards
+  The application includes a Milestone Tracking Module to motivate and guide users throughout their language-learning journey. This feature provides clear goals for users to achieve and allows them to track their progress toward completing milestones.
+<img width="1471" alt="Screenshot 2025-01-06 at 18 38 27" src="https://github.com/user-attachments/assets/89cd299e-749a-4a91-a60f-986fa192d747" />
 
