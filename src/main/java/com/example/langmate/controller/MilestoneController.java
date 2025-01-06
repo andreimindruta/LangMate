@@ -27,7 +27,7 @@ public class MilestoneController {
                         milestone.getName(),
                         milestone.getDescription(),
                         milestone.getTargetValue(),
-                        milestone.getTargetType()
+                        milestone.getTargetType().name()
                 ))
                 .collect(Collectors.toList());
         return ResponseEntity.ok(responses);
@@ -41,7 +41,7 @@ public class MilestoneController {
                 milestone.getName(),
                 milestone.getDescription(),
                 milestone.getTargetValue(),
-                milestone.getTargetType()
+                milestone.getTargetType().name()
         );
         return ResponseEntity.ok(response);
     }
@@ -54,7 +54,7 @@ public class MilestoneController {
                 milestone.getName(),
                 milestone.getDescription(),
                 milestone.getTargetValue(),
-                milestone.getTargetType()
+                milestone.getTargetType().name()
         );
         return ResponseEntity.ok(response);
     }

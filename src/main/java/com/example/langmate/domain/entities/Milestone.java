@@ -23,9 +23,7 @@ public class Milestone {
 
     private Integer targetValue;
 
-    private String targetType;
+    @Enumerated(EnumType.STRING)
+    private MilestoneTargetType targetType; // add milestone type
 
-    @OneToMany(mappedBy = "milestone", cascade = CascadeType.ALL, orphanRemoval = true)
-    @ToString.Exclude
-    private List<Reward> rewards;
 }

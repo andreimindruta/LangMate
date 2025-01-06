@@ -34,6 +34,8 @@ public class TestService {
 
     private final ResultRepository resultRepository;
 
+    private final MilestoneService milestoneService;
+
     SimpleDateFormat formatter = new SimpleDateFormat("dd/MM/yyyy HH:mm");
 
 
@@ -63,13 +65,20 @@ public class TestService {
         val language = languageRepository.findByName(request.languageName()).orElseThrow(
                 () -> new LangmateRuntimeException(400, "Language does not exist"));
         val grade = points.stream().mapToDouble(Integer::doubleValue).sum();
-        val currentUser = userService.getCurrentUser();
+        val currentUser = userService.getCurrentUser().orElseThrow(
+                () -> new LangmateRuntimeException(403, "User not found")
+        );
         val result = Result.builder()
-                .user(currentUser.get())
+                .user(currentUser)
                 .timestamp(new Date())
                 .grade(grade)
                 .language(language).build();
         val savedResult = resultRepository.save(result);
+
+        log.info("Calling milestoneService.checkAndAssignMilestones for userId: {}, languageId: {}",
+                currentUser.getId(), language.getId());
+        milestoneService.checkAndAssignMilestones(currentUser.getId(), language.getId());
+
         return new GetResultResponse(savedResult.getGrade(), savedResult.getLanguage().getName(), formatter.format(result.getTimestamp()));
     }
 
@@ -80,5 +89,7 @@ public class TestService {
         }
         return 0;
     }
+
+
 
 }
