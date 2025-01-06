@@ -75,8 +75,6 @@ public class TestService {
                 .language(language).build();
         val savedResult = resultRepository.save(result);
 
-        log.info("Calling milestoneService.checkAndAssignMilestones for userId: {}, languageId: {}",
-                currentUser.getId(), language.getId());
         milestoneService.checkAndAssignMilestones(currentUser.getId(), language.getId());
 
         return new GetResultResponse(savedResult.getGrade(), savedResult.getLanguage().getName(), formatter.format(result.getTimestamp()));

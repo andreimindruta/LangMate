@@ -35,19 +35,15 @@ public class MilestoneService {
     private TestService testService;
 
     public List<Milestone> getAllMilestones() {
-        logger.info("Fetching all milestones from the database");
         return milestoneRepository.findAll();
     }
 
     public Milestone getMilestoneById(Long id) {
-        logger.info("Fetching milestone with ID: {}", id);
         return milestoneRepository.findById(id)
                 .orElseThrow(() -> new RuntimeException("Milestone not found with id: " + id));
     }
 
     public Milestone createMilestone(MilestoneRequest request) {
-        logger.info("Creating milestone with name: {}, targetValue: {}, targetType: {}",
-                request.name(), request.targetValue(), request.targetType());
         Milestone milestone = new Milestone();
         milestone.setName(request.name());
         milestone.setDescription(request.description());
@@ -70,18 +66,15 @@ public class MilestoneService {
      * Verifică progresul unui utilizator și atribuie milestone-uri.
      */
     public void checkAndAssignMilestones(Long userId, Long languageId) {
-        logger.info("Checking milestones for userId: {}, languageId: {}", userId, languageId);
+
         List<Milestone> milestones = milestoneRepository.findAll();
 
         for (Milestone milestone : milestones) {
-            logger.info("Processing milestone: {}, targetType: {}, targetValue: {}",
-                    milestone.getName(), milestone.getTargetType(), milestone.getTargetValue());
             boolean achieved = false;
 
             switch (milestone.getTargetType()) {
                 case GRADE:
                     Double averageGrade = resultService.getAverageGradeForUserAndLanguage(userId, languageId);
-                    logger.info("Average grade for userId: {}, languageId: {} is {}", userId, languageId, averageGrade);
                     if (averageGrade != null && averageGrade >= milestone.getTargetValue()) {
                         achieved = true;
                     }
@@ -89,7 +82,6 @@ public class MilestoneService {
 
                 case TESTS:
                     int completedTests = resultService.getTestsCountForUserAndLanguage(userId, languageId);
-                    logger.info("Completed tests for userId: {}, languageId: {} is {}", userId, languageId, completedTests);
                     if (completedTests >= milestone.getTargetValue()) {
                         achieved = true;
                     }
@@ -101,7 +93,6 @@ public class MilestoneService {
             }
 
             if (achieved) {
-                logger.info("Milestone achieved: {} for userId: {}", milestone.getName(), userId);
                 assignMilestoneToUser(userId, milestone);
             } else {
                 logger.info("Milestone not achieved: {} for userId: {}", milestone.getName(), userId);
@@ -113,7 +104,6 @@ public class MilestoneService {
      * Atribuie milestone-ul unui utilizator.
      */
     private void assignMilestoneToUser(Long userId, Milestone milestone) {
-        logger.info("Assigning milestone: {} to userId: {}", milestone.getName(), userId);
         if (!milestoneUserRepository.existsByUserIdAndMilestoneId(userId, milestone.getId())) {
             MilestoneUser milestoneUser = new MilestoneUser();
             milestoneUser.setUser(new User(userId));

@@ -29,7 +29,6 @@ public class ResultService {
 
     public GetResultsResponse findResultsForLanguage(final String languageName)
             throws LangmateRuntimeException {
-        log.info("Fetching results for language: {}", languageName);
         val language = languageRepository.findByName(languageName).orElseThrow(()
                 -> new LangmateRuntimeException(400, "Language not found"));
         val currentUser = userService.getCurrentUser().orElseThrow(
@@ -44,32 +43,24 @@ public class ResultService {
                 .map(result -> new GetResultResponse(result.getGrade(), result.getLanguage().getName(),
                         formatter.format(result.getTimestamp())))
                 .toList();
-        log.info("Fetched {} results for userId: {} and language: {}", mappedResults.size(),
-                currentUser.getId(), languageName);
         return new GetResultsResponse(mappedResults);
     }
 
     public GetResultResponse getResultDetails(final Long resultId)
             throws LangmateRuntimeException {
-        log.info("Fetching result details for resultId: {}", resultId);
         val result = resultRepository.findById(resultId).orElseThrow(()
                 -> new LangmateRuntimeException(400, "No result found"));
-        log.info("Result found: {}", result);
         return new GetResultResponse(result.getGrade(), result.getLanguage().getName(),
                 formatter.format(result.getTimestamp()));
     }
 
     public Double getAverageGradeForUserAndLanguage(Long userId, Long languageId) {
-        log.info("Fetching average grade for userId: {}, languageId: {}", userId, languageId);
-        Double averageGrade = resultRepository.findAverageGradeByUserAndLanguage(userId, languageId);
-        log.info("Average grade fetched: {}", averageGrade);
-        return averageGrade;
+        return resultRepository.findAverageGradeByUserAndLanguage(userId, languageId);
+
     }
 
     public int getTestsCountForUserAndLanguage(Long userId, Long languageId) {
-        log.info("Fetching test count for userId: {}, languageId: {}", userId, languageId);
-        int testCount = resultRepository.countTestsForUserAndLanguage(userId, languageId);
-        log.info("Test count fetched: {}", testCount);
-        return testCount;
+        return resultRepository.countTestsForUserAndLanguage(userId, languageId);
+
     }
 }
